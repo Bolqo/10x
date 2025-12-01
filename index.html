@@ -238,6 +238,19 @@
             border-radius: 5px;
             overflow: hidden;
             margin-bottom: 15px;
+            transition: all 0.3s ease;
+            
+        }
+        .progress-bar:hover {
+            width: 100%;
+            background-color: #cc3bda;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: #c267ca;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
             
         }
 
@@ -247,7 +260,14 @@
             height: 8px;
             background-image: linear-gradient(to right, #84FAB0, #8FD3F4);
             border-radius: 50px;
-            transition: width 0.5s ease;
+            transition: all 0.3s ease;
+        }
+        .progress:hover {
+            width: 80%;
+            height: 8px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right, #226d3d, #8FD3F4);
+            transform: scale(1.50);
         }
 
 
@@ -274,6 +294,7 @@
   --percentage: var(--value);
   --primary: #8FD3F4;
   --secondary: #f4effd67;
+  --third: #c267ca;
   --size: 70px;
   animation: progress 2s 0.5s forwards;
   width: var(--size);
@@ -283,7 +304,15 @@
   overflow: hidden;
   display: grid;
   place-items: center;
-  
+
+  /* Add smooth transition */
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+
+[role="progressbar"]:hover {
+  transform: scale(1.1);           /* slightly enlarge */
+  box-shadow: 0 0 8px 3px var(--third); /* smooth glowing effect */
+  cursor: pointer;
 }
 
 [role="progressbar"]::before {
