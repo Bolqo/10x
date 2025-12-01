@@ -10,18 +10,95 @@
      <link rel="icon" href="/assets/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
-        body{
+
+        :root {
+        --bg-color: #ffffff;
+        --avatar-outer-color: #ffffff solid 1px;
+        --toggle-bg: #ccc;
+        --cv-bg-color: #292929;
+        --text-color: white;
+        --grey-text-color: grey;
+        --i-color: invert(0%);
+        
+        }
+
+        body.dark {
+        --bg-color: #1e1e1e;
+        --avatar-outer-color: #000000 solid 1px;
+        --toggle-bg: #000000;
+        --cv-bg-color: #ffffff;
+        --text-color: black;
+        --grey-text-color: grey;
+        --i-color: invert(100%);
+        
+        
+
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Toggle container */
+        .theme-toggle {
+            width: 60px;
+            height: 30px;
+            background: var(--toggle-bg);
+            border-radius: 50px;
+            position: absolute;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+            margin-left: 470px;
+            margin-bottom: 70px;
+            box-sizing: border-box;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-ball {
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+        }
+
+  
+        .icon {
+            font-size: 16px;
+        }
+
+            body.dark .toggle-ball {
+            transform: translateX(30px);
+        }
+
+        body {
             margin: 0;
             background-color: #ffffff;
             display: flex;
             justify-content:center;
             align-items: center;
             min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
 
-        #cv{
-            background-color: #292929;
+        #cv {
+            background-color:var(--cv-bg-color);
             width: auto;
             height: auto;
             display:grid;
@@ -33,18 +110,17 @@
             
         }
 
-        /* Banner block */
-        #banner{
-            
+       
+        #banner {
             grid-column-start: 1;
             grid-column-end: 3;
             grid-row-start: 1;
             grid-row-end: 2;
-            border-bottom: solid 0.5px #ffffff;
+            border-bottom:  var(--avatar-outer-color);
             
         }
 
-        #banner_container{
+        #banner_container {
             width: 595px;
             height: 140px;
             display: flex;
@@ -52,7 +128,7 @@
             justify-content: flex-start;
             align-items: center
         }
-        #border{
+        #border {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -61,7 +137,7 @@
             margin-left: 40px;
             margin-right: 40px;
         }    
-        #titles{
+        #titles {
             max-height: 80px;
             display: flex;
             flex-direction: row;
@@ -69,10 +145,10 @@
             align-items: center;
             gap: 20px;
         }
-        #avatar{
+        #avatar {
             width: 90px;
             height: 90px;
-            outline: #ffffff solid 1px;
+            outline:  var(--avatar-outer-color);
             outline-offset: 5px;
             border-radius: 50px;
             display: flex;
@@ -82,7 +158,7 @@
             background-color: #D3BFF9;
             overflow: hidden;
         }
-        img{
+        img {
             width: auto;
             height: 95px;
             display: flex;
@@ -90,8 +166,9 @@
             justify-content: center;
             align-items: center;
             padding-top: 10px;
+            color: var(--bg-img-color);
         }
-        .i{
+        .i {
             width: auto;
             height: 80px;
             display: flex;
@@ -99,16 +176,17 @@
             justify-content: center;
             align-items: center;
             padding-top: 0px;
+            filter: var(--i-color);
         }
 
-        h1{
+        h1 {
             font-size: 40px;
             line-height: 100%;
             font-family: 'Anton', sans-serif;
             font-weight: normal;
             font-style: normal;
             text-transform: uppercase;
-            color: #ffffff;
+            color: var(--text-color);
         }
         .violet-blue {
             background-image: linear-gradient(to right, #E0C3FC, #8EC5FC);
@@ -136,7 +214,7 @@
             grid-column-end: 2;
             grid-row-start: 2;
             grid-row-end: 3;
-            border-right: #ffffff solid 0.5px;
+            border-right:  var(--avatar-outer-color);
         }
         #gen_info_container{
            display: flex;
@@ -155,8 +233,8 @@
             font-style: normal;
             text-transform:uppercase;
             display: inline-block;
-            color: #ffffff;
-            border-bottom: 1px solid #ffffff;
+            color: var(--text-color);
+            border-bottom: var(--avatar-outer-color);
             margin-top: 20px;
             margin-bottom: 10px;
             
@@ -168,7 +246,7 @@
             font-weight: 600;
             font-style: normal;
             text-transform:capitalize;
-            color: #ffffff;
+            color: var(--text-color);
             line-height: 0.5;
             margin-top: 0.1px;
             
@@ -180,11 +258,15 @@
             font-weight: lighter;
             font-style: normal;
             text-transform: capitalize;
-            color: #ffffff86;
+            color: var(--grey-text-color);
             border-bottom: 0.2px solid #5a5555;
             line-height: 0.2;
             padding-bottom: 6px;
             margin-top: 0;
+        }
+
+        p a{
+            color: var(--grey-text-color);
         }
         
 
@@ -212,7 +294,7 @@
             font-style: normal;
             text-transform: capitalize;
             border-bottom: 0px solid #5a5555;
-            color: #ffffff86;
+            color: var(--grey-text-color);
             line-height: 1.3;
             padding-bottom: 7px;
             padding-top: 7px;
@@ -224,8 +306,8 @@
             font-weight: normal;
             font-style: normal;
             text-transform: uppercase;
-            color: #ffffff;
-            border-bottom: 1px solid #ffffff;
+            color:var(--text-color);
+            border-bottom: var(--avatar-outer-color);
             display: inline-block;
             margin-top: 20px;
             line-height: 2;
@@ -234,7 +316,7 @@
 
         .progress-bar {
             width: 100%;
-            background-color: #f4effd67;
+            background-color: var(--grey-text-color);
             border-radius: 5px;
             overflow: hidden;
             margin-bottom: 15px;
@@ -342,6 +424,7 @@
     </style>
 </head>
 <body>
+    
 <div id="cv">
         <div id="banner">
                 <div id="banner_container">
@@ -361,6 +444,14 @@
                                 <span class="red-orange">developer</span>
                                 </h1>
                             </div>
+
+                            <div class="theme-toggle" id="theme-toggle">
+  <span class="icon sun">☀️</span>
+  <span class="icon moon">🌙</span>
+  <div class="toggle-ball"></div>
+
+
+  </div>
                         </div>
                     </div>
                 </div>
@@ -380,11 +471,11 @@
 
                     <h2>contact</h2>
                     <h3>email</h3>
-                    <p style="text-transform: lowercase;"><a href="mailto:irakli.bolkvadze@outlook.com" style="text-decoration: none;color:#ffffff86;">irakli.bolkvadze@outlook.com</a></p>
+                    <p style="text-transform: lowercase;"><a href="mailto:irakli.bolkvadze@outlook.com" style="text-decoration: none;color:#ffffff86; color: var(--gr-text-color);">irakli.bolkvadze@outlook.com</a></p>
                     <h3>Web</h3>
-                    <p style="text-transform: lowercase;"><a href="https://www.webly.ge" style="text-decoration: none;color:#ffffff86;">https://www.webly.ge</a></p>
+                    <p style="text-transform: lowercase;"><a href="https://www.webly.ge" style="text-decoration: none;color:#ffffff86;color: var(--gr-text-color);">https://www.webly.ge</a></p>
                     <h3>linkedIn</h3>
-                    <p style="text-transform: lowercase;"><a href="https://www.linkedin.com/in/bolqo" style="text-decoration: none;color:#ffffff86;">https://www.linkedin.com/in/bolqo</a></p>
+                    <p style="text-transform: lowercase;"><a href="https://www.linkedin.com/in/bolqo" style="text-decoration: none;color:#ffffff86;color: var(--gr-text-color);">https://www.linkedin.com/in/bolqo</a></p>
 
                     <h2>software</h2>
                     <h3 style="text-transform: uppercase;">html</h3>
@@ -441,4 +532,12 @@
 
 
 </body>
+<script>
+    const toggle = document.getElementById("theme-toggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+</script>
+
 </html>
