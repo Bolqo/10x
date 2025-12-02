@@ -325,7 +325,7 @@
         }
         .progress-bar:hover {
             width: 100%;
-            background-color: #cc3bda;
+            background-color: #6e6c6e;
             border-radius: 5px;
             overflow: hidden;
             margin-bottom: 15px;
@@ -348,7 +348,7 @@
             width: 80%;
             height: 8px;
             border-radius: 50px;
-            background-image: linear-gradient(to right, #226d3d, #8FD3F4);
+            background-image: linear-gradient(to right, #FA709A, #FEE140);
             transform: scale(1.50);
         }
 
@@ -376,7 +376,7 @@
   --percentage: var(--value);
   --primary: #8FD3F4;
   --secondary: var(--grey-text-color);
-  --third: #c267ca;
+  --third: #a86e18;
   --size: 70px;
   animation: progress 2s 0.5s forwards;
   width: var(--size);
@@ -420,7 +420,12 @@
 }
 
 
-
+@media (max-width: 768px) {
+  .cv {
+    width: 80%;
+    height: 80%;
+  }
+}
     </style>
 </head>
 <body>
@@ -446,8 +451,8 @@
                             </div>
 
                             <div class="theme-toggle" id="theme-toggle">
-  <span class="icon sun">☀️</span>
-  <span class="icon moon">🌙</span>
+  <span class="icon sun"></span>
+  <span class="icon moon"></span>
   <div class="toggle-ball"></div>
 
 
